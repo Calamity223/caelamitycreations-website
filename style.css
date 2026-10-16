@@ -1,0 +1,26 @@
+:root {
+    /*Background Colours*/
+    --primaryBackground-colour: #090D1A;    /*Obsidian*/
+    --secondaryBackground-colour: #172554;    /*Deep Indigo*/
+
+    /*Brand Colours*/
+    --primary-colour: #635BFF;    /*Electric Violet*/
+    --accent-colour: #22D3EE;    /*Signal Cyan*/
+
+    /*Text Colours*/
+    --primaryText-colour: #F5F7FF;    /*Soft White*/
+    --secondaryText-colour: #C4CAD8;    /*Cool Grey*/
+    --mutedText-colour: #929BB0;    /*Slate Grey*/
+    --disabledText-colour: #69748B;    /*Soft White*/
+
+    /*Dividers and Borders Colours*/
+    --subtleDivider-colour: #263149;    /*Dark Slate*/
+    --visibleDivider-colour: #34415F;    /*Blue Slate*/
+    --focusBorder-colour: #635BFF;    /*Soft White*/
+
+
+    /*Additional Accents Colours*/
+    --highlight-colour: #A5B4FC;    /*Soft periwinkle*/
+    --success-colour: #5EEAD4;    /*Mint green*/
+    --flourish-colour: #F472B6;    /*Soft magenta*/
+}
