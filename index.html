@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Caelamity Creations</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to Caelamity Creations</h1>
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar"></div>
+
+    <main style="max-width: 2560px; margin: 3rem auto; padding: 0 1.5rem;">
+        <h1>Welcome to Caelamity Creations</h1>
+        <p>Game developer portfolio and project showcase.</p>
+    </main>
+
+    <script>
+        fetch('/components/navbar.html')
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById('navbar').innerHTML = html;
+        });
+  </script>
 </body>
 </html>

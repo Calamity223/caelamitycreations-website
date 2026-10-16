@@ -1,0 +1,126 @@
+<style>
+  /* Sticky navbar wrapper */
+  .navbar-wrapper {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgba(9, 13, 26, 0.85); /* Semi-transparent Obsidian */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--subtleDivider-colour);
+    z-index: 1000;
+  }
+
+  /* Centered container */
+  .navbar {
+    max-width: 2560px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Logo / Brand */
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    background: linear-gradient(135deg, var(--primary-colour), var(--accent-colour));
+    color: var(--primaryText-colour);
+    font-weight: 800;
+    font-size: 1.15rem;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(99, 91, 255, 0.35);
+  }
+
+  .brand-text {
+    color: var(--primaryText-colour);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* Navigation links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem; 
+}
+
+.navbar-links a {
+  display: inline-block;
+  color: var(--secondaryText-colour);
+  text-decoration: none; 
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:visited {
+  color: var(--secondaryText-colour);
+  text-decoration: none;
+}
+
+.navbar-links a:hover,
+.navbar-links a:focus {
+  color: var(--accent-colour);
+  text-decoration: none; 
+}
+
+  /* CTA Action button */
+  .btn-nav {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--primaryText-colour);
+    border: 1px solid var(--visibleDivider-colour);
+    padding: 0.5rem 1.1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn-nav:hover {
+    border-color: var(--primary-colour);
+    background-color: rgba(99, 91, 255, 0.15);
+    color: var(--highlight-colour);
+  }
+</style>
+
+
+<header class="navbar-wrapper">
+    <nav class="navbar">
+      <a href="/" class="nav-brand">
+        <span class="brand-mark">C</span>
+        <span class="brand-text">Caelamity Creations</span>
+      </a>
+        <div class="navbar-links">
+            <a 
+                href="/">Home
+            </a>
+            <a 
+                href="/">About me
+            </a>
+            <a 
+                href="/">Projects
+            </a>
+        </div>
+        <div 
+            class="nav-actions">
+            <a 
+                href="/pages/contact.html" class="btn-nav">Get in Touch
+            </a>
+        </div>
+    </nav>
+</header>

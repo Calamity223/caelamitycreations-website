@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Caelamity Creations</title>
+  
+  <!-- Step up one folder to reach global style.css -->
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <!-- Same Navbar Placeholder -->
+  <div id="navbar"></div>
+
+  <main style="max-width: 1200px; margin: 3rem auto; padding: 0 1.5rem;">
+    <h1>About Me</h1>
+  </main>
+
+  <!-- Same Script -->
+  <script>
+    fetch('/components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar').innerHTML = html;
+      });
+  </script>
+</body>
+</html>
