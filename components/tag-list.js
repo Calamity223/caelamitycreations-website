@@ -1,31 +1,37 @@
 import { I18n } from '../utils/i18n.js';
 
 class TagList extends HTMLElement {
-  connectedCallback() {
-    if (this._rendered) return;
-    this._rendered = true;
+    connectedCallback() {
+        if (this._rendered) return;
+        this._rendered = true;
 
-    const labelKey = this.getAttribute('label-key');
-    const tagsKey = this.getAttribute('tags-key');
+        const labelKey = this.getAttribute('label-key');
+        const tagsKey = this.getAttribute('tags-key');
 
-    const label = labelKey ? I18n.get(labelKey) : (this.getAttribute('label') || '');
-    const rawTags = tagsKey ? I18n.get(tagsKey) : (this.getAttribute('tags') || '');
-    const tags = rawTags.split(',').map(tag => tag.trim()).filter(Boolean);
+        const label = (labelKey && typeof I18n !== 'undefined')
+          ? I18n.get(labelKey, this.getAttribute('label') || '')
+          : (this.getAttribute('label') || '');
 
-    const labelHtml = label ? `<span class="tag-list-label">${label}</span>` : '';
-    const tagsHtml = tags.map(tag => `<span class="tag-chip">${tag}</span>`).join('');
+        const rawTags = (tagsKey && typeof I18n !== 'undefined')
+          ? I18n.get(tagsKey, this.getAttribute('tags') || '')
+          : (this.getAttribute('tags') || '');
 
-    this.innerHTML = `
-      <div class="tag-list-container">
-        ${labelHtml}
-        <div class="tag-list-chips">
-          ${tagsHtml}
-        </div>
-      </div>
-    `;
-  }
+        const tags = rawTags.split(',').map(tag => tag.trim()).filter(Boolean);
+
+        const labelHtml = label ? `<span class="tag-list-label">${label}</span>` : '';
+        const tagsHtml = tags.map(tag => `<span class="tag-chip">${tag}</span>`).join('');
+
+        this.innerHTML = `
+          <div class="tag-list-container">
+            ${labelHtml}
+            <div class="tag-list-chips">
+              ${tagsHtml}
+            </div>
+          </div>
+        `;
+    }
 }
 
-customElements.define('tag-list', TagList);
-
-customElements.define('tag-list', TagList);
+if (!customElements.get('tag-list')) {
+    customElements.define('tag-list', TagList);
+}

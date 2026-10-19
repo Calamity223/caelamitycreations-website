@@ -1,83 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caelamity Creations</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Component Scripts -->
-  <script type="module" src="components/button.js"></script>
-  <script type="module" src="components/status-badge.js"></script>
-  <script type="module" src="components/tag-list.js"></script>
-  <script type="module" src="components/terminal-window.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caelamity Creations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23635BFF'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-weight='800' font-size='18' fill='%23F5F7FF'>C</text></svg>">
+    <!-- Component Scripts -->
+    <script type="module" src="components/button.js"></script>
+    <script type="module" src="components/status-badge.js"></script>
+    <script type="module" src="components/tag-list.js"></script>
+    <script type="module" src="components/terminal-window.js"></script>
 </head>
 <body>
 
-  <div id="navbar"></div>
+    <div id="navbar"></div>
 
-  <main>
-    <section class="hero-section">
-      <div class="hero-container">
-        
-        <!-- Left Column -->
-        <div class="hero-content">
-          <status-badge key="hero.status"></status-badge>
+    <main>
+        <section class="hero-section">
+            <div class="hero-container">
 
-          <h1 class="hero-title" data-i18n-html="hero.title"></h1>
+                <!-- Left Column -->
+                <div class="hero-content">
+                    <status-badge key="hero.status"></status-badge>
+                
+                    <h1 class="hero-title" data-i18n-html="hero.title"></h1>
+                
+                    <p class="hero-description" data-i18n="hero.description"></p>
+                
+                    <div class="hero-actions">
+                      <site-button variant="primary" href="/pages/projects.html" key="hero.ctaProjects"></site-button>
+                      <site-button variant="nav" href="/assets/cv.pdf" target="_blank" key="hero.ctaCv"></site-button>
+                    </div>
+                
+                    <tag-list 
+                      label-key="hero.competenciesLabel" 
+                      tags-key="hero.competenciesTags">
+                    </tag-list>
+                </div>
+            
+                <!-- Right Column: Terminal Window -->
+                <terminal-window title="bash — caelamity@workstation:~" status="LIVE">
+                    <div class="terminal-line">
+                    <span class="prompt">$</span> <span class="cmd">cat developer_profile.json</span>
+                    </div>
+                
+                    <pre class="code-block"><code>{
+                    <span class="key">"name"</span>: <span class="str">"Caelamity"</span>,
+                    <span class="key">"role"</span>: <span class="str">"Software Developer"</span>,
+                    <span class="key">"domains"</span>: [
+                        <span class="str">"Systems Programming"</span>,
+                        <span class="str">"Simulation & Games"</span>,
+                        <span class="str">"Application Logic"</span>
+                    ],
+                    <span class="key">"principles"</span>: [
+                        <span class="str">"Clean OOP"</span>,
+                        <span class="str">"Zero-bloat dependencies"</span>,
+                        <span class="str">"High-performance loops"</span>
+                    ],
+                    <span class="key">"featured_repo"</span>: <span class="str">"Calamity223/caelamitycreations-website"</span>
+                    }</code></pre>
+                
+                    <div class="terminal-line">
+                        <span class="prompt">$</span> <span class="cmd">run-tests --all</span>
+                    </div>
+                    <div class="terminal-result">
+                        <span class="test-pass">✓</span> Systems logic: PASS<br>
+                        <span class="test-pass">✓</span> Memory allocations: STABLE<br>
+                        <span class="test-pass">✓</span> Build status: DEPLOYED (custom domain)
+                    </div>
+                
+                    <div class="terminal-line active-line">
+                        <span class="prompt">$</span> <span class="cursor"></span>
+                    </div>
+                </terminal-window>
 
-          <p class="hero-description" data-i18n="hero.description"></p>
-
-          <div class="hero-actions">
-            <site-button variant="primary" href="/pages/projects.html" key="hero.ctaProjects"></site-button>
-            <site-button variant="nav" href="/assets/cv.pdf" target="_blank" key="hero.ctaCv"></site-button>
-          </div>
-
-          <tag-list 
-            label-key="hero.competenciesLabel" 
-            tags-key="hero.competenciesTags">
-          </tag-list>
-        </div>
-
-        <!-- Right Column: Terminal Window -->
-        <terminal-window title="bash — caelamity@workstation:~" status="LIVE">
-          <div class="terminal-line">
-            <span class="prompt">$</span> <span class="cmd">cat developer_profile.json</span>
-          </div>
-          
-          <pre class="code-block"><code>{
-  <span class="key">"name"</span>: <span class="str">"Caelamity"</span>,
-  <span class="key">"role"</span>: <span class="str">"Software Developer"</span>,
-  <span class="key">"domains"</span>: [
-    <span class="str">"Systems Programming"</span>,
-    <span class="str">"Simulation & Games"</span>,
-    <span class="str">"Application Logic"</span>
-  ],
-  <span class="key">"principles"</span>: [
-    <span class="str">"Clean OOP"</span>,
-    <span class="str">"Zero-bloat dependencies"</span>,
-    <span class="str">"High-performance loops"</span>
-  ],
-  <span class="key">"featured_repo"</span>: <span class="str">"Calamity223/caelamitycreations-website"</span>
-}</code></pre>
-
-          <div class="terminal-line">
-            <span class="prompt">$</span> <span class="cmd">run-tests --all</span>
-          </div>
-          <div class="terminal-result">
-            <span class="test-pass">✓</span> Systems logic: PASS<br>
-            <span class="test-pass">✓</span> Memory allocations: STABLE<br>
-            <span class="test-pass">✓</span> Build status: DEPLOYED (custom domain)
-          </div>
-
-          <div class="terminal-line active-line">
-            <span class="prompt">$</span> <span class="cursor"></span>
-          </div>
-        </terminal-window>
-
-      </div>
-    </section>
-  </main>
+            </div>
+        </section>
+    </main>
 
 <script type="module">
   import { I18n } from './utils/i18n.js';
