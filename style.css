@@ -33,3 +33,322 @@ html, body {
   color: var(--primaryText-colour);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
+
+
+site-button,
+status-badge,
+tag-list,
+terminal-window {
+  display: contents;
+}
+
+/* ==========================================================================
+   Base Button Object Styles
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* Variant: Nav Bar Action Button */
+.btn-nav {
+  background-color: transparent;
+  color: var(--primaryText-colour);
+  border-color: var(--visibleDivider-colour);
+  padding: 0.5rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+.btn-nav:hover {
+  border-color: var(--primary-colour);
+  background-color: rgba(99, 91, 255, 0.15);
+  color: var(--highlight-colour);
+}
+
+/* Variant: Primary CTA Button */
+.btn-primary {
+  background-color: var(--primary-colour);
+  color: var(--primaryText-colour);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(99, 91, 255, 0.4);
+}
+
+/* Variant: Accent Button (Signal Cyan) */
+.btn-accent {
+  background-color: var(--accent-colour);
+  color: var(--primaryBackground-colour); /* Dark text for contrast */
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+}
+
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(34, 211, 238, 0.35);
+}
+
+/* ==========================================================================
+   Hero Section Layout (Grid & Typography Only)
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  padding: 5rem 1.5rem 6rem;
+  overflow: hidden;
+  background: radial-gradient(circle at 80% 20%, rgba(99, 91, 255, 0.08) 0%, transparent 45%),
+              radial-gradient(circle at 15% 85%, rgba(34, 211, 238, 0.05) 0%, transparent 45%);
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.hero-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--primaryText-colour);
+  margin-bottom: 1.25rem;
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, var(--accent-colour), var(--highlight-colour));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: var(--secondaryText-colour);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Mobile Breakpoint */
+@media (max-width: 900px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+}
+/* ==========================================================================
+   5. COMPONENT: StatusBadge (<status-badge>)
+   ========================================================================== */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: rgba(94, 234, 212, 0.08);
+  border: 1px solid rgba(94, 234, 212, 0.25);
+  color: var(--success-colour);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--success-colour);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--success-colour);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* ==========================================================================
+   6. COMPONENT: TagList (<tag-list>)
+   ========================================================================== */
+
+.tag-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--subtleDivider-colour);
+}
+
+.tag-list-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--mutedText-colour);
+  font-weight: 700;
+}
+
+.tag-list-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-chip {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--secondaryText-colour);
+  background-color: var(--secondaryBackground-colour);
+  border: 1px solid var(--subtleDivider-colour);
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   7. COMPONENT: TerminalWindow (<terminal-window>)
+   ========================================================================== */
+
+.terminal-wrapper {
+  position: relative;
+}
+
+/* Ambient glow backdrop */
+.terminal-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(99, 91, 255, 0.2) 0%, transparent 70%);
+  filter: blur(25px);
+  z-index: 0;
+  border-radius: 16px;
+}
+
+.terminal-window {
+  position: relative;
+  z-index: 1;
+  background-color: #0b1120;
+  border: 1px solid var(--visibleDivider-colour);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: rgba(23, 37, 84, 0.4);
+  border-bottom: 1px solid var(--subtleDivider-colour);
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.ctrl-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.ctrl-dot.red { background-color: var(--flourish-colour); }
+.ctrl-dot.yellow { background-color: #facc15; }
+.ctrl-dot.green { background-color: var(--success-colour); }
+
+.terminal-title {
+  font-size: 0.75rem;
+  color: var(--mutedText-colour);
+}
+
+.terminal-status {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--success-colour);
+  background: rgba(94, 234, 212, 0.15);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.terminal-body {
+  padding: 1.25rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Syntax Highlighting Tokens inside Terminal */
+.terminal-line {
+  margin-bottom: 0.4rem;
+}
+
+.prompt {
+  color: var(--accent-colour);
+  font-weight: 700;
+}
+
+.cmd {
+  color: var(--primaryText-colour);
+}
+
+.code-block {
+  margin: 0.5rem 0 1rem 0;
+  padding-left: 0.5rem;
+}
+
+.key { color: var(--highlight-colour); }
+.str { color: var(--success-colour); }
+
+.terminal-result {
+  color: var(--secondaryText-colour);
+  margin: 0.5rem 0 1rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.test-pass {
+  color: var(--success-colour);
+  font-weight: 700;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: var(--accent-colour);
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}

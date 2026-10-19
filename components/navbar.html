@@ -76,26 +76,6 @@
   color: var(--accent-colour);
   text-decoration: none; 
 }
-
-  /* CTA Action button */
-  .btn-nav {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--primaryText-colour);
-    border: 1px solid var(--visibleDivider-colour);
-    padding: 0.5rem 1.1rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-  }
-
-  .btn-nav:hover {
-    border-color: var(--primary-colour);
-    background-color: rgba(99, 91, 255, 0.15);
-    color: var(--highlight-colour);
-  }
 </style>
 
 
@@ -105,22 +85,17 @@
         <span class="brand-mark">C</span>
         <span class="brand-text">Caelamity Creations</span>
       </a>
-        <div class="navbar-links">
-            <a 
-                href="/">Home
-            </a>
-            <a 
-                href="/">About me
-            </a>
-            <a 
-                href="/">Projects
-            </a>
-        </div>
-        <div 
-            class="nav-actions">
-            <a 
-                href="/pages/contact.html" class="btn-nav">Get in Touch
-            </a>
-        </div>
+      <div class="navbar-links">
+          <a 
+              href="/">Home
+          </a>
+          <a 
+              href="/">About me
+          </a>
+          <a 
+              href="/">Projects
+          </a>
+      </div>
+      <site-button variant="nav" href="/pages/contact.html">Get in Touch</site-button>
     </nav>
 </header>
